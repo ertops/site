@@ -1,3 +1,13 @@
+@font-face { font-family: OpenSans; src: url('fonts/OpenSans-Regular.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; src: url('fonts/OpenSans-Bold.ttf');}
+@font-face { font-family: OpenSans; font-style: italic; src: url('fonts/OpenSans-Italic.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; font-style: italic; src: url('fonts/OpenSans_BoldItalic.ttf');}
+
+h1, h2, h3, h4, h5, p, span, div {
+  font-family: 'OpenSans', sans-serif !important;
+  font-weight: normal;
+}
+
 body {
   padding-top: 20px;
   padding-bottom: 40px;
