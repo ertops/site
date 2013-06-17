@@ -10,6 +10,10 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+    <!--[if lte IE 8]>
+       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+    <![endif]-->
     <link href="css/app.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -24,8 +28,8 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="contact.html">Contact</a></li>
           <!--<li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>-->
         </ul>
@@ -34,60 +38,31 @@
 
       <hr>
 
-      <div class="jumbotron">
-        <h1>Hack for ERT</h1>
-        <p class="lead">On June 11th 2013, the Greek public broadcaster, ERT, was shut down, in an extremely absurd and ridiculous way.
-        Let's empower them with open source technology, and help them understand its value. <a href="contact.html">Join us!</a></p>
-
-        <div class="row-fluid">
-          <div class="span1 offset4">
-            <a href="https://github.com/ertops">
-              <img src="img/github-64-black.png">
-            </a>
-          </div>
-          <div class="span1">
-            <a href="https://www.facebook.com/ertops">
-              <img src="img/facebook-64-black.png">
-            </a>
-          </div>
-          <div class="span1">
-            <a href="https://plus.google.com/117464434564451996745/about">
-              <img src="img/googleplus-64-black.png">
-            </a>
-          </div>
-          <div class="span1">
-            <a href="https://twitter.com/ertdevops">
-              <img src="img/twitter-64-black.png">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <hr>
+      <div id="map"></div>
 
       <div class="row-fluid marketing">
         <div class="span6">
-          <h4>Code</h4>
-          <p>You can find our open source projects here, <a href="https://github.com/ertops">github.com/ertops</a></p>
-
-          <h4>Ert open</h4>
-          <p>For latest ERT news visit <a href="http://ertopen.com">ertopen.com</a>, managed by the ERT multimedia department</p>
+          <h4>Location</h4>
+          <p>You can find us inside ERT behind the vans on your right after you cross the main gate.</p>
+          <p>Check the map above for the exact location.</p>
         </div>
 
         <div class="span6">
-          <h4>Android App</h4>
-          <p>Android streaming app that was developed by Ertops
-            <div id="play-btn">
-              <a href="https://play.google.com/store/apps/details?id=com.ertops.stream.android"
-                 class="btn">
-                 Install App
-               </a>
-            </div>
+          <h4>Communicate</h4>
+          <p>Our main communication channel is IRC <a href="https://webchat.freenode.net/?channels=ertops">chat (freenode.net - #ertops)</a></p>
+
+          <h4>Email</h4>
+          <p>You can send us an email on <a href="mailto:anon@ertops.com">anon@ertops.com</a></p>
+
+          <h4>Social media</h4>
+          <p>Follow us on twitter <a href="https://twitter.com/ertdevops">@ertdevops</a></p>
+          <p>Follow us on <a href="https://www.facebook.com/ertops">facebook</a> and
+            <a href="https://plus.google.com/117464434564451996745/about">Google +</a>
           </p>
         </div>
       </div>
 
-      <img id="horizon" src="img/hr.png">
+      <hr>
 
       <div class="footer">
         <p>cc-by-sa ertop devs 2013 | fork me on <a href="https://github.com/ertops/site">github</a></p>
@@ -111,6 +86,8 @@
     <script src="js/bootstrap-collapse.js"></script>
     <script src="js/bootstrap-carousel.js"></script>
     <script src="js/bootstrap-typeahead.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+    <script src="js/contact.js"></script>
 
   </body>
 </html>
