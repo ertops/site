@@ -2,42 +2,40 @@
 //guess repo from url, default to ertops
 gh_repo = document.location.href.match( /[^\/]*\/\/([^\\]*).github.io\/([^\/]*)/);
 gh_repo = gh_repo ? gh_repo[1] + "/" + gh_repo[2] : "ertops/site";
-gh_repo_fragments = undefined;
+gh_repo_fragments = [];
 
-function load_fragment(name) {
+function load_fragment(noid) {
+	var frag = gh_repo_fragments[noid] || gh_repo_fragments.find(function(n) { n.name == noid; });
+
 	var list = $('.masthead ul .active'),
-		item = $('.masthead ul #tab-' + name),
+		item = $('.masthead ul #tab-' + frag.name),
 		content = $('#content');
 	
 	list.removeClass('active');
 	item.addClass('active loading');
 	content.addClass('loading')
 	
-	content.load('pages/' + name + '.html', function() {
+	content.load('pages/' + frag.path, function() {
 		item.removeClass('loading')
 		content.removeClass('loading');	
 	});
 }
 
-function populate_pages(data) {
+function populate_pages() {
     var list = $('.masthead ul');
     if (list.length) {
       list.empty();
-      _.filter(data, function(it) { 
-        return it.name.indexOf('.html')!=-1 
-
-      }).map(function(it) { 
 	  
-        var name = it.name.match(/[^\.]*\.*([^\.]*)/)[1];
-        list.append(
-          '<li id="tab-' + name + '"><a href="#' + name + '">' + name + '</a></li>'
+	  _.each(gh_repo_fragments, function(it) {
+		list.append(
+          '<li id="tab-' + it.name + '"><a href="#' + it.name + '">' + it.name + '</a></li>'
         );
-        $("#tab-" + name).click(function(w) {
-          load_fragment(name);
+        $("#tab-" + it.name).click(function(w) {
+          load_fragment(it.id);
         });
-      });
-      
-      load_fragment('Home');
+	  });
+
+      load_fragment(0);
       
       return true;
     }
@@ -48,16 +46,23 @@ function populate_pages(data) {
 //fetch the nav list
 //Fragment loading and navlist could be done in parallel, but aren blocking right now
 $.ajax('https://api.github.com/repos/' + gh_repo + '/contents/pages/', { 
-	success: function(data) { 
-		if (!populate_pages(data))
-      gh_repo_fragments=data; //.masthead not there, do it on ready()
+	success: function(data) { 	
+		gh_repo_fragments = [];
+		
+		data = _.filter(data, function(it) { 
+			return it.name.indexOf('.html')!=-1 
+		})
+		data = _.each(data, function(it) { 
+			gh_repo_fragments.push({id:gh_repo_fragments.length, name: it.name.match(/[^\.]*\.*([^\.]*)/)[1], path: it.name});
+		});
+		
+		populate_pages();
 	}
 });
 
 $(document).ready(function() {
-  if (gh_repo_fragments) {
-    populate_pages(gh_repo_fragments);
-    delete gh_repo_fragments;
-  }
+	//messy
+	if (gh_repo_fragments.length)
+		populate_pages();
 });
 
