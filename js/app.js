@@ -27,7 +27,8 @@ function populate_pages(data) {
         return it.name.indexOf('.html')!=-1 
 
       }).map(function(it) { 
-        var name = it.name.substr(0,it.name.length-5);
+	  
+        var name = it.name.match(/[^\.]*\.*([^\.]*)/)[1];
         list.append(
           '<li id="tab-' + name + '"><a href="#' + name + '">' + name + '</a></li>'
         );
