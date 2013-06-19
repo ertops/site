@@ -58,3 +58,9 @@ body {
   height: 280px;
   border-radius: 15px;
 }
+
+.event {
+    text-align:center;
+    display:block;
+    font-weight:bold;
+}
