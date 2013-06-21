@@ -10,10 +10,31 @@
 
     <h4>ET3 Stream</h4>
       <p>Via <a href="http://www.thepressproject.gr/">ThePressProject</a></p>
-      <div class="et3stream">
+      <div id="et3stream" class="et3stream">
         ET3 STREAM HERE
       </div>
   </div>
+
+<script type='text/javascript' src='http://www.msfree.gr/newplayer/jwplayer.js '></script>
+
+<script type='text/javascript'>
+  jwplayer('et3stream').setup({
+    'flashplayer': 'http://www.msfree.gr/newplayer/player.swf',
+    'file': 'livestream',
+  'streamer': 'rtmp://31.204.128.118/live',    	'controlbar': 'bottom',
+	'bufferlenght': '15',
+	'logo.file': 'logotpp9.png',
+	'logo.position': 'top-right',
+	'logo.hide': 'false',
+	'logo.out': '1.0',
+//	'controlbar': 'over',
+	'stretching': 'exactfit',
+	'autostart': 'false',
+	'skin': 'http://www.msfree.gr/mstv/test/stormtrooper.zip',
+	'image': 'http://www.thepressproject.gr/tvplayer/backgroundert3.jpg',	    'width': '500',
+    'height': '400'
+  });
+</script>
 
 
   <script>
@@ -24,10 +45,10 @@
 
     if (hasFlash) {
       net.innerHTML='<iframe frameborder=0 width="480" height="340" src="http://livemanager.eurovision.edgesuite.net/ert/index.html?tag=aHR0cDovL2xpdmVtYW5hZ2VyLmV1cm92aXNpb24uZWRnZXN1aXRlLm5ldC9lYnUveG1sL2VydC54bWw7MTE2NzE%3D"></iframe>';
-      et3.innerHTML='<iframe allowtransparency="yes" frameborder="0" height="400" marginheight="0" marginwidth="0" scrolling="no" src="http://www.thepressproject.gr/tvplayer/player.php?a=0&s=et3&f=livestream&h=400&w=500&b=http://www.thepressproject.gr/tvplayer/backgroundert3.jpg&n=rtmp://31.204.128.118/live" width="500"></iframe>'
+      //et3.innerHTML='<iframe allowtransparency="yes" frameborder="0" height="400" marginheight="0" marginwidth="0" scrolling="no" src="http://www.thepressproject.gr/tvplayer/player.php?a=0&s=et3&f=livestream&h=400&w=500&b=http://www.thepressproject.gr/tvplayer/backgroundert3.jpg&n=rtmp://31.204.128.118/live" width="500"></iframe>'
     }
     else {
       net.innerHTML='<video style="width:100%;max-width:480px;" controls><source src="http://ebu_ios-i.akamaihd.net/hls/live/214400/ert/master.m3u8" ></video>';
-      et3.innerHTML='Plase install flash or email anon@ertops.com an html5 compatible stream.';
+      //et3.innerHTML='Plase install flash or email anon@ertops.com an html5 compatible stream.';
     }
   </script>
