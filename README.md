@@ -1,5 +1,5 @@
-site
+Ertops.com Website
 ====
 ertops.com site
 
-Use the gh-pages branch -- https://github.com/ertops/site/tree/gh-pages
+Basic website based on Twitter bootstrap, with info about ertops proeject.

@@ -1,0 +1,78 @@
+@font-face { font-family: OpenSans; src: url('fonts/OpenSans-Regular.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; src: url('fonts/OpenSans-Bold.ttf');}
+@font-face { font-family: OpenSans; font-style: italic; src: url('fonts/OpenSans-Italic.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; font-style: italic; src: url('fonts/OpenSans_BoldItalic.ttf');}
+
+h1, h2, h3, h4, h5, p, span, div {
+  font-family: 'OpenSans', sans-serif !important;
+  font-weight: normal;
+}
+
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#content {
+  min-height: 200px;
+}
+.loading {
+  opacity: 0.7;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: auto;
+  width:550px;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+#play-btn {
+  text-align: right;
+  margin-top: 10px;
+}
+
+#horizon {
+  width: 700px;
+  margin-top: -100px;
+}
+
+#map {
+  height: 280px;
+  border-radius: 15px;
+}
+
+.event {
+  text-align:center;
+  display:block;
+  font-weight:bold;
+}
+
+.nobullet {
+  list-style-type: none;
+}
