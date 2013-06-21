@@ -14,10 +14,10 @@ body {
 }
 
 #content {
-	min-height: 200px;
+  min-height: 200px;
 }
 .loading {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 /* Custom container */
@@ -67,7 +67,11 @@ body {
 }
 
 .event {
-    text-align:center;
-    display:block;
-    font-weight:bold;
+  text-align:center;
+  display:block;
+  font-weight:bold;
+}
+
+.nobullet {
+  list-style-type: none;
 }
