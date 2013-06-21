@@ -1,11 +1,10 @@
-
 //guess repo from url, default to ertops
 gh_repo = document.location.href.match( /[^\/]*\/\/([^\\]*).github.io\/([^\/]*)/);
 gh_repo = gh_repo ? gh_repo[1] + "/" + gh_repo[2] : "ertops/site";
 gh_repo_fragments = [];
 
 function load_fragment(noid) {
-	var frag = gh_repo_fragments[noid] || gh_repo_fragments.find(function(n) { n.name == noid; });
+	var frag = gh_repo_fragments[noid] || _.find(gh_repo_fragments, function(n) { return n.name == noid; });
 
 	var list = $('.masthead ul .active'),
 		item = $('.masthead ul #tab-' + frag.name),
@@ -35,7 +34,7 @@ function populate_pages() {
         });
 	  });
 
-      load_fragment(0);
+      load_fragment(window.location.hash.slice(1) || 0);
       
       return true;
     }
