@@ -4,7 +4,8 @@ gh_repo = gh_repo ? gh_repo[1] + "/" + gh_repo[2] : "ertops/site";
 gh_repo_fragments = [];
 
 function load_fragment(noid) {
-	var frag = gh_repo_fragments[noid] || _.find(gh_repo_fragments, function(n) { return n.name == noid; });
+	var frag = gh_repo_fragments[noid] || _.find(gh_repo_fragments, function(n) { return n.name == noid; }) 
+		   || gh_repo_fragments[0];
 
 	var list = $('.masthead ul .active'),
 		item = $('.masthead ul #tab-' + frag.name),
